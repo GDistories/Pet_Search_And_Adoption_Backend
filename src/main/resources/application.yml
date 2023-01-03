@@ -1,0 +1,81 @@
+# Access Port
+server:
+  port: 8889
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  thymeleaf:
+    cache: false
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: pet_found@163.com
+    password: DYMKYDXBATFUJBSZ
+    nickname: Pet Found And Adoption
+    properties:
+      mail:
+        smtp:
+          timeout: 10000
+          connectiontimeout: 10000
+          writetimeout: 10000
+          auth: true
+          starttls:
+            enable: true
+
+  datasource:
+    # MySQL URL
+    url: jdbc:mysql://localhost:3306/petfound?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+
+    # MySQL username
+    username: root
+
+    #MySQL password
+    password: 912699176
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  web:
+    resources:
+      static-locations: file:${web.upload-path},classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  ## Table(create_time) -> Entity(createTime)
+  configuration:
+    map-underscore-to-camel-case: true
+
+# open logging
+logging:
+  level:
+    com:
+      spring: info
+
+  file:
+    name: log/back.log
+  pattern:
+    # Log in console print format
+    console: "%d{MM/dd-HH:mm:ss,SSS} [%thread] %-5level %logger- %msg%n"
+    # Log in file format
+    file: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+
+web:
+  # TODO: Change file path
+  # Windows
+#  upload-path: D:\XMUM\FYP\Pet-Found-and-Adoption\backend\images
+  # Linux
+   upload-path: /home/ubuntu/workspace/pet_backend/Image
+
+shelter:
+  registerCode: XMUMFYP
+
+
+
+
+
+
+
+
+
+
+
